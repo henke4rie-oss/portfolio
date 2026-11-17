@@ -1,0 +1,29 @@
+---
+import { site } from "@/site";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full py-12 border-t border-[#ffffff10]">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col items-center gap-4 text-sm text-[var(--white-icon)]">
+      <p>Built with Astro and Tailwind CSS. Hosted on GitHub Pages.</p>
+      <p class="text-center">
+        <!-- MIT License: keep the original copyright notice -->
+        Copyright © {currentYear} {site.name}. Template by{" "}
+        <a
+          target="_blank"
+          rel="noopener"
+          class="hover:text-[var(--white)] transition duration-300"
+          href="https://github.com/Gothsec">Andres Hernandez</a
+        >, distributed by{" "}
+        <a
+          target="_blank"
+          rel="noopener"
+          class="hover:text-[var(--white)] transition duration-300"
+          href="https://themewagon.com">ThemeWagon</a
+        >.
+      </p>
+    </div>
+  </div>
+</footer>

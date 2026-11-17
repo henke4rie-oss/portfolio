@@ -1,0 +1,95 @@
+---
+import "@fontsource-variable/montserrat";
+import { site } from "@/site";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const description = `${site.name}, ${site.role}. ${site.tagline}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title} | Portfolio</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href={`${baseUrl}/favicon.png`} />
+    <link rel="canonical" href={site.siteUrl} />
+
+    <meta property="og:title" content={`${site.name} | ${site.role}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={site.siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={`${site.name} Portfolio`} />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: site.name,
+        url: site.siteUrl,
+        sameAs: [site.github, site.linkedin].filter(Boolean),
+        jobTitle: site.role,
+        description: site.tagline,
+      })}
+    />
+  </head>
+  <body class="bg-[--background] sm:px-28 lg:px-20 px-9">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --background: #101010;
+    --sec: #a476ff;
+    --white: #dfdfdf;
+    --white-icon: #f3f3f398;
+    --white-icon-tr: #f3f3f310;
+  }
+
+  * {
+    font-family:
+      "Montserrat Variable",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  *::selection {
+    background-color: var(--sec);
+    color: var(--background);
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--sec);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a2a var(--background);
+  }
+</style>
