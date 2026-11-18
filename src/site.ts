@@ -46,6 +46,15 @@ export const projects: Project[] = [
     repo: "https://github.com/henke4rie-oss/PayrollZA",
   },
   {
+    title: "invoice-app",
+    summary:
+      "Invoicing and payment-reminder app with a one-click live demo, email and WhatsApp reminders, rate limiting, security headers and an accessible dark UI. Moving to PostgreSQL with Alembic migrations.",
+    stack: ["FastAPI", "PostgreSQL", "Docker"],
+    status: "Live demo",
+    repo: "https://github.com/henke4rie-oss/invoice-app",
+    demo: "https://invoice-app-3vb5.onrender.com",
+  },
+  {
     title: "logistics-api",
     summary:
       "REST API for customs and container manifests. Pydantic validation, Alembic migrations, pytest suite, Dockerised. Tagged v1.0.0.",
