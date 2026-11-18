@@ -3,9 +3,9 @@
 export const site = {
   name: "Henke Fourie",
   firstName: "Henke",
-  role: "Junior Python / Backend Developer",
+  role: "Junior Python & AI Agent Developer",
   tagline:
-    "Building tested backend APIs with FastAPI and PostgreSQL. Exact decimal maths, clean migrations, tests alongside the code.",
+    "Python developer building AI agents and backend APIs. Agents use real tools, the maths stays in tested code, and a person approves every change.",
   location: "South Africa",
   github: "https://github.com/henke4rie-oss",
   // Public email shown as a mail icon. Leave "" to hide it (contact form still works).
@@ -30,11 +30,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "payroll-agent",
+    summary:
+      "AI payroll assistant for SA small businesses. An LLM turns plain-language questions into structured tool calls; a deterministic SARS 2026/27 engine does every calculation; every data change needs human approval and is audit-logged. Measured with a 30-case live eval (28/30) and 93 tests; input tokens per question cut from ~3.1k to ~0.75k.",
+    stack: ["Python", "LLM tool calling", "Pydantic", "Pytest", "Evals"],
+    status: "AI agent",
+    repo: "https://github.com/henke4rie-oss/payroll-agent",
+  },
+  {
     title: "PayrollZA",
     summary:
       "South African PAYE payroll engine. FastAPI backend with exact Decimal tax maths, React front end wired to the API (payroll runs, SA ID validation, compliance calendar).",
     stack: ["FastAPI", "PostgreSQL", "Docker", "React"],
-    status: "Flagship project",
+    status: "Tax engine behind payroll-agent",
     repo: "https://github.com/henke4rie-oss/PayrollZA",
   },
   {
@@ -51,6 +59,8 @@ export const projects: Project[] = [
 // Leave it out for text-only entries.
 export const stack: { name: string; icon?: string }[] = [
   { name: "Python", icon: "siPython" },
+  { name: "LLM tool calling" },
+  { name: "Groq" },
   { name: "FastAPI", icon: "siFastapi" },
   { name: "PostgreSQL", icon: "siPostgresql" },
   { name: "SQLAlchemy", icon: "siSqlalchemy" },
@@ -67,6 +77,11 @@ export const stack: { name: string; icon?: string }[] = [
 
 // "What I do" accordion
 export const skills: Record<string, string[]> = {
+  "AI agents": [
+    "Tool calling with structured arguments",
+    "Human-in-the-loop approval and audit logs",
+    "Live evals, token and latency tuning",
+  ],
   "Backend APIs": [
     "REST APIs with FastAPI and Pydantic",
     "PostgreSQL with SQLAlchemy",
